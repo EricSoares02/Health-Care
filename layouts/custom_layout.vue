@@ -6,30 +6,35 @@ const user = {
   email: "example@email.com",
 };
 
-const t = false;
+const menubar = ref(true)
+
+const ToogleMenu = ()=>{
+
+    menubar.value = !menubar.value;
+
+}
+
 </script>
 
 <template>
   <div class="w-screen h-screen flex">
-    <aside class="w-72 h-full left-0 bg-white-100 flex flex-col shadow-md">
-      <div
-        class="w-full h-20 bg-white flex items-center justify-center text-lg font-bold"
-      >
-        Health Care
-      </div>
+    <aside v-if="menubar" class="w-72 h-full left-0 bg-white-100 flex flex-col shadow-md">
+      <DefaultLogo/>
+      <SideBar />
+    </aside>
+    <aside v-else="menubar" class="w-72 h-full left-0 bg-white-100 flex flex-col shadow-md">
+      <DefaultLogo/>
       <SideBar />
     </aside>
     <div class="w-11/12 h-full bg-gray-300">
-      <header
-        class="w-full h-[72px] fixed top-0 flex justify-between bg-white-100 shadow-md px-6"
-      >
-        <div v-if="t" class="w-72">Health Care</div>
-        <div class="w-4/6 h-full">
+      <header class="w-full h-[72px] fixed top-0 flex justify-between bg-white-100 shadow-md px-6">
+        <DefaultLogo v-if="false"/>
+        <div class="w-4/6 h-full max-2xl:w-2/5 max-xl:w-1/2 max-lg:w-1/3">
           <form action="" class="w-full h-full flex items-center gap-2">
             <input
               type="text"
               placeholder="Search..."
-              class="w-[60%] h-3/4 outline-none rounded-lg pl-2 bg-gray-300"
+              class="w-[60%] h-3/4 outline-none rounded-lg pl-2 bg-gray-300 max-lg:w-full"
             />
             <button type="submit" class="-translate-x-12 translate-y-1">
               <svg
@@ -46,7 +51,7 @@ const t = false;
             </button>
           </form>
         </div>
-        <div class="w-2/6 h-full flex items-center gap-3">
+        <div class="w-2/6 h-full flex items-center gap-3 max-2xl:w-3/5 max-2xl:justify-center max-xl:w-1/2 max-xl:justify-start max-lg:w-2/3">
             <div class="w-11 h-3/5 rounded-full border border-gray-500">
 
             </div>
