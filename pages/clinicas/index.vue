@@ -5,8 +5,7 @@ definePageMeta({
   layout: 'custom-layout'
 })
 
+
 </script>
 
-<template>
-    <h1>hi deeeesu</h1>
-</template>
+<template> <h1>hi desu</h1></template>
