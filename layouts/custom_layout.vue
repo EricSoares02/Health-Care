@@ -9,10 +9,10 @@ const user = {
 const menubar = ref(true)
 
 const ToogleMenu = ()=>{
-
     menubar.value = !menubar.value;
-
 }
+
+
 
 </script>
 
@@ -20,16 +20,14 @@ const ToogleMenu = ()=>{
   <div class="w-screen h-screen flex">
     <aside v-if="menubar" class="w-72 h-full left-0 bg-white-100 flex flex-col shadow-md">
       <DefaultLogo/>
-      <SideBar />
+      <SideBar @ToogleMenu="ToogleMenu"/>
     </aside>
-    <aside v-else="menubar" class="w-72 h-full left-0 bg-white-100 flex flex-col shadow-md">
-      <DefaultLogo/>
-      <SideBar />
-    </aside>
-    <div class="w-11/12 h-full bg-gray-300">
-      <header class="w-full h-[72px] fixed top-0 flex justify-between bg-white-100 shadow-md px-6">
-        <DefaultLogo v-if="false"/>
-        <div class="w-4/6 h-full max-2xl:w-2/5 max-xl:w-1/2 max-lg:w-1/3">
+    <div class="w-full h-full bg-gray-300">
+      <header class="w-full h-[72px] fixed top-0 flex justify-between bg-white-100 shadow-md px-6 max-sm:px-1">
+        <div v-if="!menubar" class="w-10 h-full flex items-center justify-center">
+            <button @click="ToogleMenu" class="w-4/5 h-4/5 bg-blue-500">=</button>
+        </div>
+        <div class="w-4/6 h-full max-2xl:w-2/5 max-xl:w-1/2 max-lg:w-3/5">
           <form action="" class="w-full h-full flex items-center gap-2">
             <input
               type="text"
@@ -51,19 +49,19 @@ const ToogleMenu = ()=>{
             </button>
           </form>
         </div>
-        <div class="w-2/6 h-full flex items-center gap-3 max-2xl:w-3/5 max-2xl:justify-center max-xl:w-1/2 max-xl:justify-start max-lg:w-2/3">
+        <div class="w-2/6 h-full flex items-center gap-3 max-2xl:w-3/5 max-2xl:justify-center max-xl:w-1/2 max-xl:justify-start max-lg:w-2/5 max-lg:justify-center max-md:flex-row-reverse">
             <div class="w-11 h-3/5 rounded-full border border-gray-500">
 
             </div>
-            <div class="w-2/5 h-full grid grid-cols-3 grid-rows-2">
+            <div class="w-2/5 h-full grid grid-cols-3 grid-rows-2 max-md:hidden">
                 <div class="row-span-2 flex items-center justify-center">
                     <div class="w-12 h-4/6 rounded-full">
                         <img :src="user.photo" alt="" class="w-full h-full rounded-full object-contain">
                     </div>    
                 </div>
                 <div class="row-span-2 col-span-2 flex flex-col items-start justify-center">
-                    <span class="font-semibold text-base">{{ user.name }}</span>
-                    <span class="text-gray-600 text-sm">{{ user.email }}</span>
+                    <span class="font-semibold text-base text-nowrap">{{ user.name }}</span>
+                    <span class="text-gray-600 text-sm text-nowrap">{{ user.email }}</span>
                 </div>
             </div>
         </div>
