@@ -6,7 +6,8 @@ const user = {
   email: "example@email.com",
 };
 
-const menubar = ref(true)
+
+const menubar = ref(true);
 
 const ToogleMenu = ()=>{
     menubar.value = !menubar.value;
@@ -18,11 +19,11 @@ const ToogleMenu = ()=>{
 
 <template>
   <div class="w-screen h-screen flex">
-    <aside v-if="menubar" class="w-72 h-full left-0 bg-white-100 flex flex-col shadow-md">
+    <aside v-if="menubar" class="w-72 h-full z-50 left-0 bg-white-100 flex flex-col shadow-md max-md:w-full max-md:absolute">
       <DefaultLogo/>
       <SideBar @ToogleMenu="ToogleMenu"/>
     </aside>
-    <div class="w-full h-full bg-gray-300">
+    <div class="w-full h-full bg-gray-300 max-lg:w-full">
       <header class="w-full h-[72px] fixed top-0 flex justify-between bg-white-100 shadow-md px-6 max-sm:px-1">
         <div v-if="!menubar" class="w-10 h-full flex items-center justify-center">
             <button @click="ToogleMenu" class="w-4/5 h-4/5 bg-blue-500">=</button>
@@ -66,6 +67,9 @@ const ToogleMenu = ()=>{
             </div>
         </div>
       </header>
+      <main class="w-full h-auto relative top-[73px] p-8">
+         <slot></slot> 
+      </main>
     </div>
   </div>
 </template>

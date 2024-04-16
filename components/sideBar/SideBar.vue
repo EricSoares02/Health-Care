@@ -23,7 +23,7 @@ const emit = defineEmits(['ToogleMenu'])
 
 <template>
 
-<nav class="w-full h-full max-h-80">
+<nav class="w-full h-full">
     <div class="hidden w-full h-10 items-center justify-end pr-4 max-lg:flex">
        <button @click="$emit('ToogleMenu', 'clicked')">X</button>
     </div>
