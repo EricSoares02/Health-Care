@@ -11,7 +11,7 @@ function buttonsColor(currentUrl: string, buttonPath: string){
         return '#0377FF';
     }
     
-    return '#D2D2D2'
+    return '#262626'
 }
 
 function NavButtonsIsActive(currentUrl: string, buttonPath: string) {
@@ -42,22 +42,22 @@ function NavButtonsIsActive(currentUrl: string, buttonPath: string) {
                 
             </NavButtons>
             <NavButtons :props="{path: '/clinicas', title: 'Clinics', twStyle: NavButtonsIsActive(currentUrl, '/clinicas'.slice(1))}">
-                
+                <StethoscopeIcon :color="buttonsColor(currentUrl,'/clinicas'.slice(1))" :size="size"/>
             </NavButtons>
             <NavButtons :props="{path: '/medicos', title: 'Doctors', twStyle: NavButtonsIsActive(currentUrl, '/medicos'.slice(1))}">
-                
+                <DoctorIcon :color="buttonsColor(currentUrl,'/medicos'.slice(1))" :size="size"/>
             </NavButtons>
             <NavButtons :props="{path: '/consultas', title: 'Consultations', twStyle: NavButtonsIsActive(currentUrl, '/consultas'.slice(1))}">
-                
+                <PhoneIcon :color="buttonsColor(currentUrl,'/conta'.slice(1))" size="18px"/>
             </NavButtons>
             <NavButtons :props="{path: '/conta', title: 'Account', twStyle: NavButtonsIsActive(currentUrl, '/conta'.slice(1))}">
-                
+                <UserIcon :color="buttonsColor(currentUrl,'/conta'.slice(1))" :size="size"/>
             </NavButtons>
             <NavButtons :props="{path: '/medspace', title: 'MedSpace', twStyle: NavButtonsIsActive(currentUrl, '/medspace'.slice(1))}">
                 
             </NavButtons>
             <NavButtons :props="{path: '/logout', title: 'Logout', twStyle: NavButtonsIsActive(currentUrl, '/logout'.slice(1))}">
-                
+                <LogoutIcon :color="buttonsColor(currentUrl,'/conta'.slice(1))" :size="size"/>
             </NavButtons>
     </ul>
 </nav>
