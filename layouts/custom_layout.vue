@@ -14,9 +14,9 @@ function ToogleMenu(){
 <div class="w-screnn h-screen">
 
   <DefaultHeader @ToogleMenu="ToogleMenu"/>
-  <main class="w-full h-auto relative top-20 flex flex-col px-1 pt-2">
+  <main class="w-full h-auto min-h-full relative top-20 flex flex-col px-1  bg-gray-300">
     <aside v-if="menubar"
-    class="w-72 h-full absolute left-0 bg-white-100
+    class="w-72 h-full fixed left-0 bg-white-100 pt-2
     max-md:w-full max-md:h-full 
     ">
       <SideBar/>
