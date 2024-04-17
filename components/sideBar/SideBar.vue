@@ -4,7 +4,6 @@ const route = useRoute();
 const currentUrl = route.fullPath.split("/")[1];
 const size = "20px";
 
-
 function NavButtonsIsActive(currentUrl: string, buttonPath: string) {
   const defaultStyle = "w-11/12 h-10 flex items-center gap-4 font-semibold pl-4 rounded-lg";
 
@@ -16,7 +15,7 @@ function NavButtonsIsActive(currentUrl: string, buttonPath: string) {
 }
 
 
-const emit = defineEmits(['ToogleMenu'])
+
 
 </script>
 
@@ -24,9 +23,6 @@ const emit = defineEmits(['ToogleMenu'])
 <template>
 
 <nav class="w-full h-full">
-    <div class="hidden w-full h-10 items-center justify-end pr-4 max-lg:flex">
-       <button @click="$emit('ToogleMenu', 'clicked')">X</button>
-    </div>
     <ul class="w-full h-full flex flex-col items-center text-[14px] gap-1">
             <NavButtons :props="{path: '/', title: 'Home', twStyle: NavButtonsIsActive(currentUrl, '/'.slice(1))}">
                 <HomeIcon :color="buttonsColor(currentUrl,'/'.slice(1))" :size="size"/>
